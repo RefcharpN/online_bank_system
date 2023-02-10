@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/startup">
+
+    <fragment
+        android:id="@+id/startup"
+        android:name="com.example.test_online_bank_kotlin.startup"
+        android:label="fragment_startup"
+        tools:layout="@layout/fragment_startup" >
+        <action
+            android:id="@+id/action_startup_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_startup_to_enter_pin"
+            app:destination="@id/enter_pin" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_page"
+        android:name="com.example.test_online_bank_kotlin.main_page"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" />
+    <fragment
+        android:id="@+id/registration_phone"
+        android:name="com.example.test_online_bank_kotlin.registration_phone"
+        android:label="fragment_registration_phone"
+        tools:layout="@layout/fragment_registration_phone" >
+        <action
+            android:id="@+id/action_registration_phone_to_registration_personal_data"
+            app:destination="@id/registration_personal_data" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration_personal_data"
+        android:name="com.example.test_online_bank_kotlin.registration_personal_data"
+        android:label="fragment_registration_personal_data"
+        tools:layout="@layout/fragment_registration_personal_data" >
+        <action
+            android:id="@+id/action_registration_personal_data_to_registration_set_pin"
+            app:destination="@id/registration_set_pin" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration_set_pin"
+        android:name="com.example.test_online_bank_kotlin.registration_set_pin"
+        android:label="fragment_registration_set_pin"
+        tools:layout="@layout/fragment_registration_set_pin" >
+        <action
+            android:id="@+id/action_registration_set_pin_to_main_page"
+            app:destination="@id/main_page" />
+        <action
+            android:id="@+id/action_registration_set_pin_self"
+            app:destination="@id/registration_set_pin" />
+        <argument
+            android:name="second_pin_input"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.test_online_bank_kotlin.login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_registration_set_pin"
+            app:destination="@id/registration_set_pin" />
+        <action
+            android:id="@+id/action_login_to_registration_phone"
+            app:destination="@id/registration_phone" />
+    </fragment>
+    <fragment
+        android:id="@+id/enter_pin"
+        android:name="com.example.test_online_bank_kotlin.enter_pin"
+        android:label="fragment_enter_pin"
+        tools:layout="@layout/fragment_enter_pin" >
+        <action
+            android:id="@+id/action_enter_pin_to_main_page"
+            app:destination="@id/main_page" />
+        <action
+            android:id="@+id/action_enter_pin_self"
+            app:destination="@id/enter_pin" />
+    </fragment>
+</navigation>

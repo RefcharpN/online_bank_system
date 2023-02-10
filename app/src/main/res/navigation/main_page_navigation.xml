@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_page_navigation"
+    app:startDestination="@id/card">
+
+    <fragment
+        android:id="@+id/card"
+        android:name="com.example.test_online_bank_kotlin.card"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.example.test_online_bank_kotlin.chat"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/person"
+        android:name="com.example.test_online_bank_kotlin.person"
+        android:label="fragment_person"
+        tools:layout="@layout/fragment_person" />
+</navigation>
