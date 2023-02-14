@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".registration_set_pin">
 
-    <io.bitfactory.pincodelayout.PinCodeLayout
-        android:id="@+id/pinCodeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-
-        android:layout_marginTop="16dp"
-        app:activeBarColor="@color/main"
-
-        app:filledPinIcon="@drawable/ic_dot_filled"
-        app:hidePin="true"
-        app:inactiveBarColor="@color/main"
-        app:inputBackground="@color/main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:pinLength="4"
-        app:pinType="digits"
-        app:unfilledPinIcon="@drawable/ic_dot_empty"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button"
@@ -39,24 +17,160 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView5"
 
-        android:textSize="25dp"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:text="введите пин-код"
-        app:layout_constraintBottom_toTopOf="@+id/pinCodeLayout"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001"
+        app:layout_constraintVertical_bias="0.18"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29000002"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/ic_dot_empty" />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10sp"
+            android:background="@drawable/ic_dot_empty" />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10sp"
+            android:background="@drawable/ic_dot_empty" />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10sp"
+            android:background="@drawable/ic_dot_empty" />
+    </LinearLayout>
+
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83"
+        tools:ignore="MissingConstraints">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="5" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="6" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="7" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="9" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/baseline_fingerprint_24" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="0" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/baseline_backspace_24" />
+        </TableRow>
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
