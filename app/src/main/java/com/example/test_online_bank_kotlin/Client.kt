@@ -33,7 +33,7 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
     {
         try {
             socket = Socket()
-            socket!!.connect(InetSocketAddress(addr, port), 1000)
+            socket!!.connect(InetSocketAddress(addr, port), 10000)
 
         } catch (e: IOException) {
             System.err.println("Socket failed")

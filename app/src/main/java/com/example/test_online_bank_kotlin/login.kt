@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -39,7 +41,6 @@ class login : Fragment() {
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    System.out.println("Back button clicks")
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
@@ -49,8 +50,7 @@ class login : Fragment() {
 
         view.findViewById<Button>(R.id.button2).setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch{
-                val client = ClientSomthing("192.168.102.216",8080)
-                //уведомление: идёт подключение к серверу -- через тост
+                val client = ClientSomthing(getString(R.string.server_ip),8080)
                 if (client.socket_status())
                     {
                         val json = JSONObject()
@@ -67,17 +67,25 @@ class login : Fragment() {
                         }
                         else
                         {
-                            System.out.println("неправильные данные")
+                            getActivity()?.runOnUiThread( Runnable{Toast.makeText(view.context, "неправильный логин/пароль", Toast.LENGTH_SHORT).show()})
                         }
 
                     }
                 else
                     {
-
+                        getActivity()?.runOnUiThread( Runnable{Toast.makeText(view.context, "ошибка подключения к серверу", Toast.LENGTH_SHORT).show()})
                     }
 
+            }
         }
-        }
+
+
+
+
+        view.findViewById<TextView>(R.id.textView7).setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_login_to_registration_phone);
+        };
+
         return view;
     }
 

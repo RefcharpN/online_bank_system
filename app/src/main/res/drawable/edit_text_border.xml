@@ -10,6 +10,6 @@
         android:topLeftRadius="12dp"
         android:topRightRadius="12dp"/>
     <stroke
-        android:color="#C3C3C3"
+        android:color="@color/night_buttons"
         android:width="5dp"/>
 </shape>

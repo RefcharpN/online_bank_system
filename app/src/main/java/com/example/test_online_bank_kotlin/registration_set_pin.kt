@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
-import io.bitfactory.pincodelayout.PinCodeActions
-import io.bitfactory.pincodelayout.PinCodeLayout
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -20,6 +20,30 @@ class registration_set_pin : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var fragment_view: View? = null
+
+    private var text_field: TextView? = null
+
+    private var btn_01: Button? = null
+    private var btn_02: Button? = null
+    private var btn_03: Button? = null
+    private var btn_04: Button? = null
+    private var btn_05: Button? = null
+    private var btn_06: Button? = null
+    private var btn_07: Button? = null
+    private var btn_08: Button? = null
+    private var btn_09: Button? = null
+    private var btn_00: Button? = null
+    private var btn_fng: ImageButton? = null
+    private var btn_bcksp: ImageButton? = null
+
+    private var vw_00: View? = null
+    private var vw_01: View? = null
+    private var vw_02: View? = null
+    private var vw_03: View? = null
+
+    private var passCode_safe: String = ""
+    private var numbers_list: ArrayList<String> = ArrayList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,48 +54,193 @@ class registration_set_pin : Fragment() {
     }
 
 
-    private val callback: PinCodeActions = object : PinCodeActions {
-        @RequiresApi(Build.VERSION_CODES.S)
-        override fun onPinEntered(pin: String) {
-            // Called when the pin is fully entered. Returns the pin1
-            if( fragment_view!!.findViewById<TextView>(R.id.textView5).text.equals("повторно введите пин-код"))
-            {
-
-            }
-            else
-            {
-                Navigation.findNavController(fragment_view!!).navigate(R.id.action_registration_set_pin_self)
-            }
-        }
-
-        override fun onPinCleared() {
-            // Called when the pin is cleared/empty
-        }
-
-        override fun onPinFilled() {
-            // Called when the pin is entered and the View looses focus
-
-        }
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         fragment_view = inflater.inflate(R.layout.fragment_registration_set_pin, container, false)
 
-        fragment_view!!.findViewById<PinCodeLayout>(R.id.pinCodeLayout).setCallback(callback)
-
-
-        fragment_view!!.findViewById<Button>(R.id.button).setOnClickListener {
-            Navigation.findNavController(fragment_view!!).navigate(R.id.action_registration_set_pin_to_main_page)
-        }
+        init_buttons()
+        init_views()
 
         return fragment_view
     }
 
+
+    private fun init_buttons()
+    {
+
+        this.btn_00 = fragment_view!!.findViewById<Button>(R.id.btn_00)
+        this.btn_01 = fragment_view!!.findViewById<Button>(R.id.btn_01)
+        this.btn_02 = fragment_view!!.findViewById<Button>(R.id.btn_02)
+        this.btn_03 = fragment_view!!.findViewById<Button>(R.id.btn_03)
+        this.btn_04 = fragment_view!!.findViewById<Button>(R.id.btn_04)
+        this.btn_05 = fragment_view!!.findViewById<Button>(R.id.btn_05)
+        this.btn_06 = fragment_view!!.findViewById<Button>(R.id.btn_06)
+        this.btn_07 = fragment_view!!.findViewById<Button>(R.id.btn_07)
+        this.btn_08 = fragment_view!!.findViewById<Button>(R.id.btn_08)
+        this.btn_09 = fragment_view!!.findViewById<Button>(R.id.btn_09)
+        this.btn_fng = fragment_view!!.findViewById<ImageButton>(R.id.btn_fng)
+        this.btn_bcksp = fragment_view!!.findViewById<ImageButton>(R.id.btn_bcksp)
+
+        this.btn_00!!.setOnClickListener(this::onClick)
+        this.btn_01!!.setOnClickListener(this::onClick)
+        this.btn_02!!.setOnClickListener(this::onClick)
+        this.btn_03!!.setOnClickListener(this::onClick)
+        this.btn_04!!.setOnClickListener(this::onClick)
+        this.btn_05!!.setOnClickListener(this::onClick)
+        this.btn_06!!.setOnClickListener(this::onClick)
+        this.btn_07!!.setOnClickListener(this::onClick)
+        this.btn_08!!.setOnClickListener(this::onClick)
+        this.btn_09!!.setOnClickListener(this::onClick)
+        this.btn_fng!!.setOnClickListener(this::onClick)
+        this.btn_bcksp!!.setOnClickListener(this::onClick)
+    }
+
+    private fun init_views()
+    {
+        this.text_field = fragment_view!!.findViewById<TextView>(R.id.textView5)
+
+        this.vw_00 = fragment_view!!.findViewById<View>(R.id.vw_00)
+        this.vw_01 = fragment_view!!.findViewById<View>(R.id.vw_01)
+        this.vw_02 = fragment_view!!.findViewById<View>(R.id.vw_02)
+        this.vw_03 = fragment_view!!.findViewById<View>(R.id.vw_03)
+    }
+
+
+    private fun onClick(view: View)
+    {
+        when (view.id) {
+            R.id.btn_00 -> {
+                passNumber("0")
+            }
+
+            R.id.btn_01 -> {
+                passNumber("1")
+            }
+
+            R.id.btn_02 -> {
+                passNumber("2")
+            }
+
+            R.id.btn_03 -> {
+                passNumber("3")
+            }
+
+            R.id.btn_04 -> {
+                passNumber("4")
+            }
+
+            R.id.btn_05 -> {
+                passNumber("5")
+            }
+
+            R.id.btn_06 -> {
+                passNumber("6")
+            }
+
+            R.id.btn_07 -> {
+                passNumber("7")
+            }
+
+            R.id.btn_08 -> {
+                passNumber("8")
+            }
+
+            R.id.btn_09 -> {
+                passNumber("9")
+            }
+
+            R.id.btn_fng -> {
+//                numbers_list.add("1")
+//                passNumber(numbers_list)
+            }
+
+            R.id.btn_bcksp -> {
+                delete_char()
+            }
+        }
+    }
+
+    private fun passNumber(number: String) {
+
+        if (this.numbers_list.size < 4)
+        {
+            numbers_list.add(number)
+            when (this.numbers_list.size) {
+                1 -> {
+                    this.vw_00!!.setBackgroundResource(R.drawable.ic_dot_filled)
+                }
+
+                2 -> {
+                    this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_filled)
+                }
+
+                3 -> {
+                    this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_filled)
+                }
+
+                4 -> {
+                    this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_filled)
+                    clear_pin_to_second()
+                }
+            }
+        }
+    }
+
+    private fun delete_char()
+    {
+        if(numbers_list.size > 0)
+        {
+            when (this.numbers_list.size)
+            {
+                1 -> {this.vw_00!!.setBackgroundResource(R.drawable.ic_dot_empty)}
+                2 -> {this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)}
+                3 -> {this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_empty)}
+                4 -> {this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_empty)}
+
+            }
+            numbers_list.removeAt(numbers_list.size-1)
+        }
+    }
+
+    private fun clear_pin_to_second()
+    {
+        // TODO:убрать повторения
+        if(this.passCode_safe == "")
+        {
+            this.passCode_safe = this.numbers_list.joinToString("")
+
+            this.numbers_list.clear()
+            this.vw_00!!.setBackgroundResource(R.drawable.ic_dot_empty)
+            this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)
+            this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_empty)
+            this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_empty)
+            this.text_field!!.setText("повторно введите\nпин код")
+        }
+        else
+        {
+            if (this.passCode_safe == this.numbers_list.joinToString(""))
+            {
+                this.zaplatka()
+            }
+            else
+            {
+                this.passCode_safe = ""
+                this.numbers_list.clear()
+                this.vw_00!!.setBackgroundResource(R.drawable.ic_dot_empty)
+                this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)
+                this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_empty)
+                this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_empty)
+                this.text_field!!.setText("введите пин код")
+            }
+        }
+    }
+
+    private fun zaplatka()
+    {
+        fragment_view?.let { Navigation.findNavController(it).navigate(R.id.action_registration_set_pin_to_main_page) }
+    }
 
 
 

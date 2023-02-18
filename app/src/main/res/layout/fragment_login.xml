@@ -11,40 +11,57 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/night_buttons"
         android:text="войти"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        android:backgroundTint="#C3C3C3"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <EditText
-        android:id="@+id/editTextPhone"
+    <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:inputType="phone"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        android:text="Ещё не с нами?\nПрисоединяся!"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
         android:gravity="center"
-        android:hint="введите номер" />
+        android:textColor="#4FB7E4"/>
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-        android:gravity="center"
-        android:hint="введите пароль"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_border"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="номер"
+            android:inputType="phone"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

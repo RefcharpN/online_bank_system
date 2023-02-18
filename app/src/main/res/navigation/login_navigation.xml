@@ -48,13 +48,6 @@
         <action
             android:id="@+id/action_registration_set_pin_to_main_page"
             app:destination="@id/main_page" />
-        <action
-            android:id="@+id/action_registration_set_pin_self"
-            app:destination="@id/registration_set_pin" />
-        <argument
-            android:name="second_pin_input"
-            app:argType="boolean"
-            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/login"
@@ -76,8 +69,5 @@
         <action
             android:id="@+id/action_enter_pin_to_main_page"
             app:destination="@id/main_page" />
-        <action
-            android:id="@+id/action_enter_pin_self"
-            app:destination="@id/enter_pin" />
     </fragment>
 </navigation>

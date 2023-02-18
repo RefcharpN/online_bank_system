@@ -7,24 +7,11 @@
     tools:context=".registration_set_pin">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
         android:id="@+id/textView5"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="введите пин-код"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintVertical_bias="0.07999998"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <LinearLayout
@@ -47,20 +34,24 @@
         tools:ignore="MissingConstraints">
 
         <View
+            android:id="@+id/vw_00"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:background="@drawable/ic_dot_empty" />
         <View
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginLeft="10sp"
-            android:background="@drawable/ic_dot_empty" />
-        <View
+            android:id="@+id/vw_01"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginLeft="10sp"
             android:background="@drawable/ic_dot_empty" />
         <View
+            android:id="@+id/vw_02"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10sp"
+            android:background="@drawable/ic_dot_empty" />
+        <View
+            android:id="@+id/vw_03"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginLeft="10sp"
@@ -84,22 +75,31 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/btn_01"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="1" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="1"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="2" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="2"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_03"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="3" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="3"
+                android:textColor="@color/night_buttons"/>
         </TableRow>
 
         <TableRow
@@ -107,22 +107,31 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/btn_04"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="4" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="4"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_05"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="5" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="5"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_06"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="6" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="6"
+                android:textColor="@color/night_buttons"/>
         </TableRow>
 
         <TableRow
@@ -130,22 +139,31 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/btn_07"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="7" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="7"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_08"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="8" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="8"
+                android:textColor="@color/night_buttons"/>
 
             <Button
+                android:id="@+id/btn_09"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="9" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="9"
+                android:textColor="@color/night_buttons"/>
         </TableRow>
 
         <TableRow
@@ -153,21 +171,28 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/btn_fng"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                style="?android:attr/buttonBarButtonStyle"
                 android:src="@drawable/baseline_fingerprint_24" />
 
             <Button
+                android:id="@+id/btn_00"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="0" />
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="0"
+                android:textColor="@color/night_buttons"/>
 
             <ImageButton
+                android:id="@+id/btn_bcksp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                style="?android:attr/buttonBarButtonStyle"
                 android:src="@drawable/baseline_backspace_24" />
         </TableRow>
     </TableLayout>

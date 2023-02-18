@@ -35,7 +35,7 @@ class startup : Fragment() {
         val view = inflater.inflate(R.layout.fragment_startup, container, false)
 
         CoroutineScope(IO).launch{
-            val client = ClientSomthing("192.168.102.216",8080)
+            val client = ClientSomthing(getString(R.string.server_ip),8080)
             //уведомление: идёт подключение к серверу -- через тост
             if (client.socket_status())
             {
