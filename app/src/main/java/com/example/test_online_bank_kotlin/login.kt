@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,10 +47,15 @@ class login : Fragment() {
             }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
-        val login_edit = view.findViewById<EditText>(R.id.editTextPhone)
-        val password_edit = view.findViewById<EditText>(R.id.editTextTextPassword)
+        val login_edit = view.findViewById<TextInputEditText>(R.id.editTextPhone)
+        val password_edit = view.findViewById<TextInputEditText>(R.id.editTextTextPassword)
+        val til = view.findViewById<TextInputLayout>(R.id.textInputLayout_pass)
+        til.helperText = ""
+
+
 
         view.findViewById<Button>(R.id.button2).setOnClickListener {
+            til.helperText = ""
             CoroutineScope(Dispatchers.IO).launch{
                 val client = ClientSomthing(getString(R.string.server_ip),8080)
                 if (client.socket_status())
@@ -67,7 +74,7 @@ class login : Fragment() {
                         }
                         else
                         {
-                            getActivity()?.runOnUiThread( Runnable{Toast.makeText(view.context, "неправильный логин/пароль", Toast.LENGTH_SHORT).show()})
+                            getActivity()?.runOnUiThread( Runnable{til.helperText = getString(R.string.no_login)})
                         }
 
                     }

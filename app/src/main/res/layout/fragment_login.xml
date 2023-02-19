@@ -31,37 +31,69 @@
         android:gravity="center"
         android:textColor="#4FB7E4"/>
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="60dp">
 
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/edit_text_border"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="номер"
-            android:inputType="phone"
-            android:minHeight="48dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginBottom="10dp">
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_border"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="пароль"
-            android:inputType="textPassword"
-            android:minHeight="48dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/night_buttons"
+                android:ems="10"
+                android:hint="телефон"
+                android:gravity="center"
+                android:lines="1"
+                android:inputType="phone"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:helperTextTextColor="@color/error"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/night_buttons"
+                android:ems="10"
+                android:hint="пароль"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:lines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

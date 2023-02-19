@@ -227,6 +227,7 @@ class registration_set_pin : Fragment() {
             else
             {
                 this.passCode_safe = ""
+
                 this.numbers_list.clear()
                 this.vw_00!!.setBackgroundResource(R.drawable.ic_dot_empty)
                 this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)
