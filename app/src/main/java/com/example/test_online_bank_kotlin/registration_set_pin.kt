@@ -1,17 +1,18 @@
 package com.example.test_online_bank_kotlin
 
+import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.biometric.BiometricPrompt.PromptInfo
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
+import java.util.concurrent.Executor
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -33,8 +34,8 @@ class registration_set_pin : Fragment() {
     private var btn_08: Button? = null
     private var btn_09: Button? = null
     private var btn_00: Button? = null
-    private var btn_fng: ImageButton? = null
-    private var btn_bcksp: ImageButton? = null
+    private var btn_fng: ImageView? = null
+    private var btn_bcksp: ImageView? = null
 
     private var vw_00: View? = null
     private var vw_01: View? = null
@@ -43,6 +44,10 @@ class registration_set_pin : Fragment() {
 
     private var passCode_safe: String = ""
     private var numbers_list: ArrayList<String> = ArrayList()
+
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: androidx.biometric.BiometricPrompt
+    private lateinit var promptInfo: PromptInfo
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,8 +67,30 @@ class registration_set_pin : Fragment() {
 
         init_buttons()
         init_views()
+        init_finger()
+
 
         return fragment_view
+    }
+
+    private fun init_finger()
+    {
+        executor = ContextCompat.getMainExecutor(fragment_view!!.context)
+        biometricPrompt = androidx.biometric.BiometricPrompt(this@registration_set_pin, executor, object:androidx.biometric.BiometricPrompt.AuthenticationCallback(){
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                super.onAuthenticationError(errorCode, errString)
+            }
+
+            override fun onAuthenticationFailed() {
+                super.onAuthenticationFailed()
+            }
+
+            override fun onAuthenticationSucceeded(result: androidx.biometric.BiometricPrompt.AuthenticationResult) {
+                super.onAuthenticationSucceeded(result)
+            }
+        })
+        promptInfo = androidx.biometric.BiometricPrompt.PromptInfo.Builder()
+            .setTitle("биометрическая аутентификация").setSubtitle("войдите по лицу или отпечатку").setNegativeButtonText("cansel").build()
     }
 
 
@@ -80,8 +107,8 @@ class registration_set_pin : Fragment() {
         this.btn_07 = fragment_view!!.findViewById<Button>(R.id.btn_07)
         this.btn_08 = fragment_view!!.findViewById<Button>(R.id.btn_08)
         this.btn_09 = fragment_view!!.findViewById<Button>(R.id.btn_09)
-        this.btn_fng = fragment_view!!.findViewById<ImageButton>(R.id.btn_fng)
-        this.btn_bcksp = fragment_view!!.findViewById<ImageButton>(R.id.btn_bcksp)
+        this.btn_fng = fragment_view!!.findViewById<ImageView>(R.id.btn_fng)
+        this.btn_bcksp = fragment_view!!.findViewById<ImageView>(R.id.btn_bcksp)
 
         this.btn_00!!.setOnClickListener(this::onClick)
         this.btn_01!!.setOnClickListener(this::onClick)
@@ -152,8 +179,7 @@ class registration_set_pin : Fragment() {
             }
 
             R.id.btn_fng -> {
-//                numbers_list.add("1")
-//                passNumber(numbers_list)
+                biometricPrompt.authenticate(promptInfo)
             }
 
             R.id.btn_bcksp -> {

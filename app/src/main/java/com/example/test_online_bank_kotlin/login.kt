@@ -49,38 +49,50 @@ class login : Fragment() {
 
         val login_edit = view.findViewById<TextInputEditText>(R.id.editTextPhone)
         val password_edit = view.findViewById<TextInputEditText>(R.id.editTextTextPassword)
+
         val til = view.findViewById<TextInputLayout>(R.id.textInputLayout_pass)
         til.helperText = ""
 
 
 
         view.findViewById<Button>(R.id.button2).setOnClickListener {
+            view.findViewById<Button>(R.id.button2).isClickable = false
+
             til.helperText = ""
             CoroutineScope(Dispatchers.IO).launch{
                 val client = ClientSomthing(getString(R.string.server_ip),8080)
                 if (client.socket_status())
                     {
                         val json = JSONObject()
+
                         json.put("OPERATION", "1")
                         json.put("LOGIN", "${login_edit.text}")
                         json.put("PASSWORD", "${password_edit.text}")
+
                         client.send(json.toString())
 
                         val json_input = client.readMsg()
                         System.out.println(json_input)
+
                         if(json_input!!["EXIST"] != "0")
                         {
                             getActivity()?.runOnUiThread( Runnable{ Navigation.findNavController(view).navigate(R.id.action_login_to_registration_set_pin)})
                         }
                         else
                         {
-                            getActivity()?.runOnUiThread( Runnable{til.helperText = getString(R.string.no_login)})
+                            getActivity()?.runOnUiThread( Runnable{
+                                til.helperText = getString(R.string.no_login)
+                                view.findViewById<Button>(R.id.button2).isClickable = true
+                            })
                         }
 
                     }
                 else
                     {
-                        getActivity()?.runOnUiThread( Runnable{Toast.makeText(view.context, "ошибка подключения к серверу", Toast.LENGTH_SHORT).show()})
+                        getActivity()?.runOnUiThread( Runnable{
+                            Toast.makeText(view.context, "ошибка подключения к серверу", Toast.LENGTH_SHORT).show()
+                            view.findViewById<Button>(R.id.button2).isClickable = true
+                        })
                     }
 
             }
