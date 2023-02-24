@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29000002"
+        app:layout_constraintVertical_bias="0.22000003"
         tools:ignore="MissingConstraints">
 
         <View
@@ -38,18 +38,21 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:background="@drawable/ic_dot_empty" />
+
         <View
             android:id="@+id/vw_01"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginLeft="10sp"
             android:background="@drawable/ic_dot_empty" />
+
         <View
             android:id="@+id/vw_02"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginLeft="10sp"
             android:background="@drawable/ic_dot_empty" />
+
         <View
             android:id="@+id/vw_03"
             android:layout_width="15dp"
@@ -81,7 +84,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="1"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -92,7 +95,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="2"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -103,7 +106,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="3"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
         </TableRow>
@@ -119,7 +122,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="4"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -130,7 +133,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="5"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -141,7 +144,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="6"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
         </TableRow>
@@ -157,7 +160,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="7"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -168,7 +171,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="8"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -179,7 +182,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="9"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
         </TableRow>
@@ -204,7 +207,7 @@
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="0"
-                android:textColor="@color/night_buttons"
+                android:textColor="@color/buttons"
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -214,7 +217,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
-                android:src="@drawable/baseline_backspace_24"
+                android:src="@drawable/backspace_svgrepo_com"
                 />
         </TableRow>
     </TableLayout>

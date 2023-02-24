@@ -13,9 +13,9 @@
 
 
         android:outlineAmbientShadowColor="#1E292B"
-        app:itemIconTint="#676767"
+        app:itemIconTint="@color/buttons"
 
-        app:itemTextColor="#676767"
+        app:itemTextColor="@color/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"

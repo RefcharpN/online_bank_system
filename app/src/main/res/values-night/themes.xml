@@ -2,21 +2,25 @@
     <!-- Base application theme. -->
     <style name="Theme.Test_online_bank_kotlin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/night_buttons</item>
+        <item name="colorPrimary">@color/buttons</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">#0C5E5D</item>
+
+        <!-- цвет текста кнопок -->
+        <item name="colorOnPrimary">@color/text</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">#1E292B</item>
-        <!-- Customize your theme here. -->
-        <item name="android:background">#1E292B</item>
+        <item name="android:statusBarColor">@color/backgr</item>
 
 
-        <!-- основная тема задника -->
-        <item name="android:textColor">#676767</item>
+
+        <!-- цвет фона пролижения -->
+        <item name="android:background">@color/backgr</item>
+        <!-- цвет текста -->
+        <item name="android:textColor">@color/text</item>
         <!--  -->
     </style>
 </resources>

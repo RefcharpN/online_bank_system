@@ -10,13 +10,15 @@
     <color name="main">#1E292B</color>
 
 
-
-    <color name="backgr">#D5DCDD</color>
-    <color name="buttons">#352D2D</color>
-    <color name="text">#C1B8B8</color>
+<!-- цвет фона   -->
+    <color name="backgr">#1E292B</color>
+<!-- цвет кнопок и всех элементов   -->
+    <color name="buttons">#C3C3C3</color>
+<!-- цвет текста   -->
+    <color name="text">#787070</color>
+<!-- цвет ошибок   -->
     <color name="error">#EF1C1C</color>
-
-
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true" tools:ignore="PrivateResource">#352D2D</color>
+<!--цвет рамки по умолчанию-->
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true" tools:ignore="PrivateResource">#C3C3C3</color>
 
 </resources>
