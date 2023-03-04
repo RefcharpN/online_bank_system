@@ -6,45 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".registration_phone">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+    <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-
-        app:helperText="@string/exist_phone"
-        app:helperTextTextColor="@color/error"
-
-
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/LoginTextInputLayoutStyle"
-        >
+        app:layout_constraintVertical_bias="0.3">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPhone"
+            style="@style/LoginTextInputLayoutStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/buttons"
-            android:ems="10"
-            android:hint="телефон"
-            android:gravity="center"
-            android:lines="1"/>
+            android:layout_height="wrap_content"
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="60dp"
+
+
+            app:helperText="@string/exist_phone"
+            app:helperTextTextColor="@color/error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="телефон"
+                android:inputType="phone"
+                android:lines="1"
+                android:textColor="@color/buttons" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassword"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="60dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textPasword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="пароль"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:textColor="@color/buttons" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="продолжить"
         android:backgroundTint="@color/buttons"
+        android:text="продолжить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.62" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

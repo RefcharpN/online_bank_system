@@ -65,14 +65,13 @@ class login : Fragment() {
                     {
                         val json = JSONObject()
 
-                        json.put("OPERATION", "1")
+                        json.put("OPERATION", "1")//TODO: операция номер 1 - проверка логина и пароля
                         json.put("LOGIN", "${login_edit.text}")
                         json.put("PASSWORD", "${password_edit.text}")
 
                         client.send(json.toString())
 
                         val json_input = client.readMsg()
-                        System.out.println(json_input)
 
                         if(json_input!!["EXIST"] != "0")
                         {

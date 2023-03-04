@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_registration_personal_data_to_registration_set_pin"
             app:destination="@id/registration_set_pin" />
+        <argument
+            android:name="phone_password"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/registration_set_pin"

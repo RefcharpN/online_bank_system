@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
 
 
-        android:outlineAmbientShadowColor="#1E292B"
         app:itemIconTint="@color/buttons"
 
         app:itemTextColor="@color/buttons"

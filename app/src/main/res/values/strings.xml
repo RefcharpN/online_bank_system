@@ -2,8 +2,8 @@
     <string name="app_name">онлайн банк</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="server_ip">194.87.92.12</string>!
-<!--    <string name="server_ip">192.168.0.139</string>-->
+<!--    <string name="server_ip">194.87.92.12</string>!-->
+    <string name="server_ip">192.168.0.139</string>
     <string name="exist_phone">номер зарегистрирован</string>
     <string name="no_login">неправильный логин/пароль</string>
 </resources>
