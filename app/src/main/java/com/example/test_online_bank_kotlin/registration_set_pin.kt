@@ -34,7 +34,7 @@ class registration_set_pin : Fragment() {
     private var btn_08: Button? = null
     private var btn_09: Button? = null
     private var btn_00: Button? = null
-    private var btn_fng: ImageView? = null
+//    private var btn_fng: ImageView? = null
     private var btn_bcksp: ImageView? = null
 
     private var vw_00: View? = null
@@ -107,7 +107,7 @@ class registration_set_pin : Fragment() {
         this.btn_07 = fragment_view!!.findViewById<Button>(R.id.btn_07)
         this.btn_08 = fragment_view!!.findViewById<Button>(R.id.btn_08)
         this.btn_09 = fragment_view!!.findViewById<Button>(R.id.btn_09)
-        this.btn_fng = fragment_view!!.findViewById<ImageView>(R.id.btn_fng)
+//        this.btn_fng = fragment_view!!.findViewById<ImageView>(R.id.btn_fng)
         this.btn_bcksp = fragment_view!!.findViewById<ImageView>(R.id.btn_bcksp)
 
         this.btn_00!!.setOnClickListener(this::onClick)
@@ -120,7 +120,7 @@ class registration_set_pin : Fragment() {
         this.btn_07!!.setOnClickListener(this::onClick)
         this.btn_08!!.setOnClickListener(this::onClick)
         this.btn_09!!.setOnClickListener(this::onClick)
-        this.btn_fng!!.setOnClickListener(this::onClick)
+//        this.btn_fng!!.setOnClickListener(this::onClick)
         this.btn_bcksp!!.setOnClickListener(this::onClick)
     }
 
@@ -178,9 +178,9 @@ class registration_set_pin : Fragment() {
                 passNumber("9")
             }
 
-            R.id.btn_fng -> {
-                biometricPrompt.authenticate(promptInfo)
-            }
+//            R.id.btn_fng -> {
+//                biometricPrompt.authenticate(promptInfo)
+//            }
 
             R.id.btn_bcksp -> {
                 delete_char()

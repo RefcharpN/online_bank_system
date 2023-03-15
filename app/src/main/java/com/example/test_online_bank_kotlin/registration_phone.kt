@@ -46,25 +46,32 @@ class registration_phone : Fragment() {
         view.findViewById<Button>(R.id.button).setOnClickListener {
             view.findViewById<Button>(R.id.button).isClickable = false
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val client = ClientSomthing(getString(R.string.server_ip), 8080)
-                if (client.socket_status()) {
-                    val json = JSONObject()
+            if(phone_edit.text!!.isEmpty() || password_edit.text!!.isEmpty())
+            {
+                phone_field.helperText = "заполните все поля"
+            }
+            else
+            {
+                CoroutineScope(Dispatchers.IO).launch {
+                    val client = ClientSomthing(getString(R.string.server_ip), 8080)
+                    if (client.socket_status()) {
+                        val json = JSONObject()
 
-                    json.put("OPERATION", "2")//TODO: операция номер 2 - проверка телефона
-                    json.put("PHONE", "${phone_edit.text}")
+                        json.put("OPERATION", "2")//TODO: операция номер 2 - проверка телефона
+                        json.put("PHONE", "${phone_edit.text}")
 
-                    client.send(json.toString())
+                        client.send(json.toString())
 
-                    val json_input = client.readMsg()
+                        val json_input = client.readMsg()
 
-                    if(json_input!!["EXIST"] == "0")
-                    {
-                        getActivity()?.runOnUiThread( Runnable{ Navigation.findNavController(view).navigate(R.id.action_registration_phone_to_registration_personal_data)})
-                    }
-                    else
-                    {
-                        getActivity()?.runOnUiThread( Runnable{phone_field.helperText = getString(R.string.exist_phone)});
+                        if(json_input!!["EXIST"] == "0")
+                        {
+                            getActivity()?.runOnUiThread( Runnable{ Navigation.findNavController(view).navigate(R.id.action_registration_phone_to_registration_personal_data)})
+                        }
+                        else
+                        {
+                            getActivity()?.runOnUiThread( Runnable{phone_field.helperText = getString(R.string.exist_phone)});
+                        }
                     }
                 }
             }

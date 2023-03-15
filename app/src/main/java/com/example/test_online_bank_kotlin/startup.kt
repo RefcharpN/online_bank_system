@@ -49,26 +49,6 @@ class startup : Fragment() {
 
         }
 
-
-//        view.findViewById<TextView>(R.id.textView).setOnClickListener{
-//            CoroutineScope(IO).launch{
-//                val client = ClientSomthing("192.168.0.139",8080)
-//                //уведомление: идёт подключение к серверу -- через тост
-//                if (client.socket_status())
-//                {
-//                    //client.send("проверка подключения")
-//                    //val jsonObj = client.readMsg()
-//                    //println(jsonObj!!["connection_status"])
-//                    getActivity()?.runOnUiThread( Runnable{Navigation.findNavController(view).navigate(R.id.action_startup_to_login)})
-//                }
-//                else
-//                {
-//                    getActivity()?.runOnUiThread( Runnable{view.findViewById<TextView>(R.id.textView).setText("неудачное подключение") })
-//                }
-//
-//            }
-//        };
-
         return view;
     }
 
