@@ -4,6 +4,7 @@ import org.json.JSONObject
 import java.io.*
 import java.net.InetSocketAddress
 import java.net.Socket
+import java.nio.charset.StandardCharsets
 import java.security.*
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
@@ -93,8 +94,14 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
         public fun readMsg() : JSONObject? {
             var str: String?
             try {
-                    str = `in`!!.readLine() // ждем сообщения с сервера
-                    jsonObj = JSONObject(str.toString())
+                str = `in`!!.readLine() // ждем сообщения с сервера
+                val decryptCipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")//строгое соблюдение
+                decryptCipher.init(Cipher.DECRYPT_MODE, privateKey)
+
+                val decryptedMessageBytes = decryptCipher.doFinal(Base64.getDecoder().decode(str))
+                val decryptedMessage = String(decryptedMessageBytes)
+                println(decryptedMessage)
+                jsonObj = JSONObject(decryptedMessage.toString())
             } catch (e: IOException) {
                 downService()
             }
@@ -108,7 +115,7 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
     public fun send(userWord: String)
     {
         try {
-            val cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")
+            val cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")//строгое соблюдение
             cipher.init(Cipher.ENCRYPT_MODE, publicKey_server)
             out!!.write(Base64.getEncoder().encodeToString(cipher.doFinal(userWord.toByteArray())) + "\n") // отправляем на сервер
             out!!.flush() // чистим
