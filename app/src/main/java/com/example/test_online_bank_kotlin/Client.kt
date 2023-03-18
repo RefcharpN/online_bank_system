@@ -97,10 +97,8 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
                 str = `in`!!.readLine() // ждем сообщения с сервера
                 val decryptCipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")//строгое соблюдение
                 decryptCipher.init(Cipher.DECRYPT_MODE, privateKey)
-
                 val decryptedMessageBytes = decryptCipher.doFinal(Base64.getDecoder().decode(str))
                 val decryptedMessage = String(decryptedMessageBytes)
-                println(decryptedMessage)
                 jsonObj = JSONObject(decryptedMessage.toString())
             } catch (e: IOException) {
                 downService()

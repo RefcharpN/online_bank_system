@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_registration_set_pin_to_main_page"
             app:destination="@id/main_page" />
+        <argument
+            android:name="login_data"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/login"

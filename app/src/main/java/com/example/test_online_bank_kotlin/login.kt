@@ -1,16 +1,15 @@
 package com.example.test_online_bank_kotlin
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputEditText
@@ -20,6 +19,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.example.ClientSomthing
 import org.json.JSONObject
+
+import androidx.datastore.preferences.createDataStore
+
 
 
 private const val ARG_PARAM1 = "param1"
@@ -40,7 +42,6 @@ class login : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
-
 
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true) {
@@ -83,9 +84,8 @@ class login : Fragment() {
 
                         if (json_input!!["EXIST"] != "0") {
                             getActivity()?.runOnUiThread(Runnable {
-                                Navigation.findNavController(
-                                    view
-                                ).navigate(R.id.action_login_to_registration_set_pin)
+                                val action = loginDirections.actionLoginToRegistrationSetPin(arrayOf<String>(login_edit.text.toString(), password_edit.text.toString()))
+                                Navigation.findNavController(view).navigate(action)
                             })
                         } else {
                             getActivity()?.runOnUiThread(Runnable {

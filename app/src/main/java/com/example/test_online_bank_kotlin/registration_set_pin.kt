@@ -1,17 +1,15 @@
 package com.example.test_online_bank_kotlin
 
-import android.hardware.biometrics.BiometricPrompt
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import java.util.concurrent.Executor
 
 private const val ARG_PARAM1 = "param1"
@@ -20,6 +18,7 @@ private const val ARG_PARAM2 = "param2"
 class registration_set_pin : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+
     private var fragment_view: View? = null
 
     private var text_field: TextView? = null
@@ -49,6 +48,8 @@ class registration_set_pin : Fragment() {
     private lateinit var biometricPrompt: androidx.biometric.BiometricPrompt
     private lateinit var promptInfo: PromptInfo
 
+
+    val args: registration_set_pinArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -242,7 +243,7 @@ class registration_set_pin : Fragment() {
             this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)
             this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_empty)
             this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_empty)
-            this.text_field!!.setText("повторно введите\nпин код")
+            this.text_field!!.setText("повторно введите\nкод доступа")
         }
         else
         {
@@ -259,13 +260,19 @@ class registration_set_pin : Fragment() {
                 this.vw_01!!.setBackgroundResource(R.drawable.ic_dot_empty)
                 this.vw_02!!.setBackgroundResource(R.drawable.ic_dot_empty)
                 this.vw_03!!.setBackgroundResource(R.drawable.ic_dot_empty)
-                this.text_field!!.setText("введите пин код")
+                this.text_field!!.setText("введите код доступа")
             }
         }
     }
 
     private fun zaplatka()
     {
+        val user_phone_pass = args.loginData
+        val store = BankDataStore(requireContext())
+        store.insert("phone", user_phone_pass[0])
+        store.insert("password", user_phone_pass[1])
+        store.insert("pin_code", this.passCode_safe)
+
         fragment_view?.let { Navigation.findNavController(it).navigate(R.id.action_registration_set_pin_to_main_page) }
     }
 

@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import org.example.ClientSomthing
 
-
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -33,6 +32,8 @@ class startup : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_startup, container, false)
+        //TODO: запомнить состояние входа
+        val store = BankDataStore(requireContext())
 
         CoroutineScope(IO).launch{
             val client = ClientSomthing(getString(R.string.server_ip),8080)
@@ -40,7 +41,17 @@ class startup : Fragment() {
             if (client.socket_status())
             {
                 client.downService()
-                getActivity()?.runOnUiThread( Runnable{Navigation.findNavController(view).navigate(R.id.action_startup_to_login)})
+                //TODO: запомнить состояние входа
+                val store = BankDataStore(requireContext())
+                if (store.get_value("phone") != "null")
+                {
+                    getActivity()?.runOnUiThread( Runnable{Navigation.findNavController(view).navigate(R.id.action_startup_to_enter_pin)})
+                }
+                else
+                {
+                    getActivity()?.runOnUiThread( Runnable{Navigation.findNavController(view).navigate(R.id.action_startup_to_login)})
+                }
+
             }
             else
             {
