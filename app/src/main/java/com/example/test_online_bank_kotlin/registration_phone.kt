@@ -53,7 +53,7 @@ class registration_phone : Fragment() {
             else
             {
                 CoroutineScope(Dispatchers.IO).launch {
-                    val client = ClientSomthing(getString(R.string.server_ip), 8080)
+                    val client = ClientSomthing(getString(R.string.server_ip), getString(R.string.server_port).toInt())
                     if (client.socket_status()) {
                         val json = JSONObject()
 
@@ -66,7 +66,8 @@ class registration_phone : Fragment() {
 
                         if(json_input!!["EXIST"] == "0")
                         {
-                            getActivity()?.runOnUiThread( Runnable{ Navigation.findNavController(view).navigate(R.id.action_registration_phone_to_registration_personal_data)})
+                            val action = registration_phoneDirections.actionRegistrationPhoneToRegistrationPersonalData(arrayOf<String>(phone_edit.text.toString(), password_edit.text.toString()))
+                            getActivity()?.runOnUiThread( Runnable{ Navigation.findNavController(view).navigate(action)})
                         }
                         else
                         {

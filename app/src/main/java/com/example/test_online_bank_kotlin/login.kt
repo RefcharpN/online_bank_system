@@ -67,7 +67,7 @@ class login : Fragment() {
             else {
                 til.helperText = ""
                 CoroutineScope(Dispatchers.IO).launch {
-                    val client = ClientSomthing(getString(R.string.server_ip), 8080)
+                    val client = ClientSomthing(getString(R.string.server_ip), getString(R.string.server_port).toInt())
                     if (client.socket_status()) {
                         val json = JSONObject()
 

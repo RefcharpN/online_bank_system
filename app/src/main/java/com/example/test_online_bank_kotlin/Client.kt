@@ -39,9 +39,7 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
         try {
             socket = Socket()
             socket!!.connect(InetSocketAddress(addr, port), 10000)
-
         } catch (e: IOException) {
-            System.err.println("Socket failed")
             return false
         }
         return true
@@ -64,10 +62,8 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
 
         this.privateKey = pair.private
         this.publicKey = pair.public
-
         this.send_key()
         this.read_key()
-
     }
 
 

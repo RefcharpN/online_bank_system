@@ -260,7 +260,7 @@ class enter_pin : Fragment() {
     private fun chech_server()
     {
         CoroutineScope(Dispatchers.IO).launch {
-            val client = ClientSomthing(getString(R.string.server_ip), 8080)
+            val client = ClientSomthing(getString(R.string.server_ip), getString(R.string.server_port).toInt())
             if (client.socket_status()) {
                 val json = JSONObject()
 
