@@ -74,7 +74,7 @@ internal class ClientSomthing(private val addr: String, private val port: Int)
     public fun downService() {
         try {
             val jsonObj_out = JSONObject()
-            jsonObj_out!!.put("OPERATION","-1")//TODO: операция номер -1 - разрыв соединения
+            jsonObj_out.put("OPERATION","-1")//TODO: операция номер -1 - разрыв соединения
             this.send(jsonObj_out.toString())
 
             if (!socket!!.isClosed) {
