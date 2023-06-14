@@ -54,7 +54,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="фамилия"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:lines="1"
                     android:textColor="@color/buttons" />
 
@@ -78,7 +78,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="имя"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:lines="1"
                     android:textColor="@color/buttons" />
 
@@ -102,7 +102,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="отчество"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:lines="1"
                     android:textColor="@color/buttons" />
 
@@ -148,7 +148,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="серия"
-                        android:inputType="phone"
+                        android:inputType="number"
                         android:lines="1"
                         android:textColor="@color/buttons" />
 
@@ -172,7 +172,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="номер"
-                        android:inputType="phone"
+                        android:inputType="number"
                         android:lines="1"
                         android:textColor="@color/buttons" />
 
@@ -202,7 +202,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="кем выдан"
-                        android:inputType="phone"
+                        android:inputType="text"
                         android:lines="1"
                         android:textColor="@color/buttons" />
 

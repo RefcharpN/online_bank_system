@@ -86,6 +86,7 @@ class registration_personal_data : Fragment() {
                         }
                         else
                         {
+                            //TODO:найти нужное поле для существующего пользователя
                             //getActivity()?.runOnUiThread( Runnable{phone_field.helperText = getString(R.string.exist_phone)});
                         }
                     }
